@@ -6,7 +6,7 @@
 /*   By: Karrar <kahamza@student.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 21:44:26 by Karrar            #+#    #+#             */
-/*   Updated: 2022/12/30 05:41:49 by Karrar           ###   ########.fr       */
+/*   Updated: 2023/01/02 20:38:09 by Karrar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ static char	*ft_edge_cases(int n)
 {
 	char	*dest;
 
-	if (n == 0)
-	{
-		dest = malloc(sizeof(char) * 2);
-		if (!dest)
-			return (NULL);
-		dest[0] = '0';
-		dest[1] = '\0';
-	}
+	dest = malloc(sizeof(char) * 2);
+	if (!dest)
+		return (NULL);
+	dest[0] = '0';
+	dest[1] = '\0';
 	return (dest);
 }
 
