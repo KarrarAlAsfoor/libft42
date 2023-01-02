@@ -6,7 +6,7 @@
 /*   By: Karrar <kahamza@student.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 21:44:26 by Karrar            #+#    #+#             */
-/*   Updated: 2023/01/02 20:44:39 by Karrar           ###   ########.fr       */
+/*   Updated: 2023/01/02 20:57:16 by Karrar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,14 @@
 #include <string.h>
 #include "libft.h"
 
-static char	*ft_edge_cases(int n)
-{
-	char	*dest;
-
-	dest = malloc(sizeof(char) * 2);
-	if (!dest)
-		return (NULL);
-	dest[0] = (char)n;
-	dest[1] = '\0';
-	return (dest);
-}
-
 static int	get_size(int n)
 {
 	int				i;
 	unsigned int	nb;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		i += 1;
@@ -63,6 +53,8 @@ static void	ft_make_itoa(char *digits, int n)
 		digits[i] = (nb % 10) + '0';
 		nb = nb / 10;
 	}
+	if (n == 0)
+		digits[i] = '0';
 	if (n < 0)
 		digits[i] = '-';
 }
@@ -72,11 +64,6 @@ char	*ft_itoa(int n)
 	char	*digits;
 
 	digits = NULL;
-	if (n == 0)
-	{
-		digits = ft_edge_cases(n);
-		return (digits);
-	}
 	digits = malloc(sizeof(char) * (get_size(n) + 1));
 	if (digits == NULL)
 		return (NULL);
